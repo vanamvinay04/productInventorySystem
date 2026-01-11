@@ -3,11 +3,12 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import HelloWorld from "./HelloWorld";
+import ListProductComponent from "./Components/ListProductComponent";
 
 function App() {
   return (
     <>
-      <HelloWorld />
+      <ListProductComponent />
     </>
   );
 }
