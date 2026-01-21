@@ -1,41 +1,53 @@
+import { useEffect, useState } from "react";
+import React from "react";
+import { listProducts } from "../services/ProductService";
+import { useNavigate } from "react-router-dom";
+
 const ListProductComponent = () => {
-  const dummyData = [
-    {
-      id: 1,
-      name: "watches",
-      price: 23.4,
-    },
-    {
-      id: 2,
-      name: "clothes",
-      email: 34.2,
-      price: 4463,
-    },
-    {
-      id: 3,
-      name: "phones",
-      email: 483.3,
-      price: 674,
-    },
-  ];
+  const [products, setProducts] = useState([]);
+  const navigator = useNavigate();
+
+  useEffect(() => {
+    listProducts()
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  function addNewProduct() {
+    navigator("/add-product");
+  }
 
   return (
-    <div className="container ">
-      <h2>Products Details</h2>
-      <table>
+    <div className="container">
+      <h2 className="text-center">Product Details</h2>
+      <button
+        className="btn btn-primary text-start mb-3"
+        onClick={addNewProduct}
+      >
+        Add New Product
+      </button>
+      <table className="table table-striped table-bordered text-center">
         <thead>
           <tr>
             <th>Product Id</th>
             <th>Product Name</th>
             <th>Product Price</th>
+            <th>Product Quantity</th>
+            <th>Product Category</th>
           </tr>
         </thead>
         <tbody>
-          {dummyData.map((product) => (
+          {products.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
-              <td>{product.name}</td>
+              <td>{product.productName}</td>
               <td>{product.price}</td>
+              <td>{product.quantity}</td>
+              <td>{product.category}</td>
             </tr>
           ))}
         </tbody>

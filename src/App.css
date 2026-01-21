@@ -1,0 +1,20 @@
+.navbar-heading-style {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: white;
+  margin-left: 20px;
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: black;
+  text-align: center;
+  color: wheat;
+}
+.footer-copyright-icon {
+  color: #5a7184;
+  margin-bottom: 30px;
+}
