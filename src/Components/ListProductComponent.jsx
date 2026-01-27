@@ -21,6 +21,10 @@ const ListProductComponent = () => {
     navigator("/add-product");
   }
 
+  function updateProduct(id) {
+    navigator(`/edit-product/${id}`);
+  }
+
   return (
     <div className="container">
       <h2 className="text-center">Product Details</h2>
@@ -38,6 +42,7 @@ const ListProductComponent = () => {
             <th>Product Price</th>
             <th>Product Quantity</th>
             <th>Product Category</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -48,6 +53,14 @@ const ListProductComponent = () => {
               <td>{product.price}</td>
               <td>{product.quantity}</td>
               <td>{product.category}</td>
+              <td>
+                <button
+                  className="btn btn-info"
+                  onClick={() => updateProduct(product.id)}
+                >
+                  Update
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

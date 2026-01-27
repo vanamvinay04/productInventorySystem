@@ -14,12 +14,14 @@ function App() {
       <BrowserRouter>
         <HeaderComponent />
         <Routes>
-          {/* http://localhost:3001 */}
+          {/* http://localhost:3000 */}
           <Route path="/" element={<ListProductComponent />}></Route>
-          {/* http://localhost:3001/products */}
+          {/* http://localhost:3000/products */}
           <Route path="/products" element={<ListProductComponent />}></Route>
-          {/* http://localhost:3001/products/add-product */}
+          {/* http://localhost:3000/products/add-product */}
           <Route path="/add-product" element={<AddProductComp />}></Route>
+          {/* http://localhost:3000/products/edit-product/2 */}
+          <Route path="/edit-product/:id" element={<AddProductComp />}></Route>
         </Routes>
         <FooterComponent />
       </BrowserRouter>
